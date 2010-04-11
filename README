@@ -1,0 +1,177 @@
+
+Secure Exchange Solutions
+
+SES Client
+
+The tool it is mostly about an AS1 implementation (www.ietf.org, look for
+"MIME-based secure EDI"). The end-user tool should be able to download from
+an Internet site (there is a specific WSDL, authentication mechanism and file
+format) a directory of contacts (name and e-mail plus the public encryption
+and signing keys), plus download and install private keys for the user.
+
+A simple UI should allow user to configure e-mail options (pop and smtp server
+parameters, etc.) and inbox/outbox location (file path). The purpose of the
+software is to allow user to pick a file and the destination address, encrypt
+and sign the file, package into S/MIME envelope and deliver to the e-mail
+server. The other (mirror) side is to receive secure e-mail from the POP
+server, decrypt, verify signature, store decrypted file and then generate an
+MDN (Message Disposition Notification), basically a signed snippet of the
+received message that provides non-repudiation of receipt, and send it back
+to sender of the message. UI should also allow user to view a list of files
+in inbox and outbox (with the status of message - sent, MDN received, etc.)
+and launch default program to view received files.
+
+http://www.openssl.org/docs/apps/smime.html
+http://stuff-things.net/2007/06/11/encrypting-sensitive-data-with-ruby-on-rails/
+http://stuff-things.net/2008/02/05/encrypting-lots-of-sensitive-data-with-ruby-on-rails/
+
+# generate private key for andy
+openssl genrsa -out andy.pem 2048
+openssl rsa -in andy.pem -pubout > andy.pub
+
+# generate private key for david
+openssl genrsa -out david.pem 2048
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEAuS+uJo2JSg0AYc455n6AQYGOUrmsvYErZxRj/lv8GYNnNoca
+nuHCmhG4PbceyCBpUU4hnWFzEumYy+uWBaRHV/nKTr1mV6fzhjchONDjN3geAZIk
+zxAmamgUsI2wiwHeAsSQ5bz2l5Ac0e8C0kN4GCN7ixZKsSHRP4vaBrLAAE6QP0b5
+uGhkdw/cKnd9ogcbloVoq+0BEfLkznYMfhlf0fEOhqZ2/PEUGZe4QiEWN6EjFyGG
+eHsQu9M/v/ibDWwLgEQJYQJcWmL6U5X7U/LgpLIJLHB84WZJcBL6E1dkh/RA0oD4
+UXsgLmGjwjBBcD5ObLP/xkJi2MfhRh6FiOddkQIDAQABAoIBAGUl2eVM4XQE7fR+
+A7oV1k/xR59/sw4/A0nmJUfFTklRMIrj+HJXtUcZ7pwm7TU6Hsw99LZVh9kIpmCb
+aPHj7OPsl8eyQ7gVEDp62jaCQdkGTr1k6Z3/oDv2ZXaZrZf/iRfR7aLON5JJMLSp
+68yU9X+Zwd0Sa/GcGwKujIOkFqMTWHQJKbwiysUkt7EbVAqZG0jsW1Ijr4LtxJ9r
+X25BmOUPdfNrGZnsFv1fAulVvsTrj9cUf50OeQKrse8IVkGS7VroOq9EATGiXA7l
+j/RZ8nIrV1MDuzDajM4KxO/dm/psFJJx9nrhB7u6l5l1gWyVvIsCy2hDwUn9PH+8
+KB8wyAECgYEA2exTyT0SA8zYAwBanKYenFbAkeh+Yw9pxd41/HeCbEoy0vqMxu+J
+IQW5j2YkyZ74mkzzI2TpUG91K61RePTTwNOpvfVn+va0m5woHmU1gzuvfsg50Yxo
+95FLqka6bQ+YzJKIAn4U/bbuqta24nVTdmjl3LkOf+gBkWNBhR3U9eECgYEA2YsJ
+LNbnOGp8htJiLy44CdVTlXclQhtitJl1QBoI5bG8JsIhbsskJT44RKmTe+vNB+X7
+/dr4fbkClyDpSnmQCDVGAiJLOQrcahfLA5+hBj7GHOW43tkjq1jnKHmbevIT40D7
+9RNz2NtE8v92UW8uLPE+ixmuXl2EyQcpCfLq/bECgYEAm+ADylSpdxhlhjgRmCzm
+hlMzKOqQxJB4yvR3zx84pfaoxeo7GeyqPHmY0e5w79qK3euemjmK/WLL/7LYLNmK
+QUnlBx/rAULHyup2c89W6IifreLQIIf7aOF/qssue+YFGIbTTF0c7KGVs5Mje3YK
+fg7oI+omaezsei7x5aKB+mECgYEAsGtMuYxeXyYcbsnWziRRVcgmzKOfF4lV9tgs
+ehui84O77kKpEkyzt3BJ+YT8EhccYzdjsG8P7gVH0H/kMX18DOwHJlvhXRUtwuwg
+u4OM9p+Z0n2J+09k2eRzMiPMr1v6POXKbumjnU3VEKuTrF7Zt6C889mTyvtUYCLq
+aSMS50ECgYEAlkEvdIWPRTohqQ6OISj7e4saxyX90jZRTBo2WJLL/e88MNwFWbbX
+kkC0upwOjeId8XNW0NJ/vPRq/K1M59R3tsib+lCTZkZ3NleGWfLCOa6JCpcbkQfn
+hPn37RgCVnuHZXP1i+Ba5Y3O4H5ej+vK5tpEmxcXxwZxpt/BkYaUcdE=
+-----END RSA PRIVATE KEY-----
+openssl rsa -in david.pem -pubout > david.pub
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuS+uJo2JSg0AYc455n6A
+QYGOUrmsvYErZxRj/lv8GYNnNocanuHCmhG4PbceyCBpUU4hnWFzEumYy+uWBaRH
+V/nKTr1mV6fzhjchONDjN3geAZIkzxAmamgUsI2wiwHeAsSQ5bz2l5Ac0e8C0kN4
+GCN7ixZKsSHRP4vaBrLAAE6QP0b5uGhkdw/cKnd9ogcbloVoq+0BEfLkznYMfhlf
+0fEOhqZ2/PEUGZe4QiEWN6EjFyGGeHsQu9M/v/ibDWwLgEQJYQJcWmL6U5X7U/Lg
+pLIJLHB84WZJcBL6E1dkh/RA0oD4UXsgLmGjwjBBcD5ObLP/xkJi2MfhRh6FiOdd
+kQIDAQAB
+-----END PUBLIC KEY-----
+
+================================================================================
+================================================================================
+
+# generate self-signed certificate for RECIPIENT
+openssl req -x509 -nodes -days 365 -subj '/C=US/ST=Virgina/L=Fairfax/CN=www.affy.com' -newkey rsa:2048 -keyout recipient.pem -out recipient_cert.pem
+openssl rsa -in recipient.pem -pubout > recipient.pub
+
+# generate self-signed certificate for SENDER
+openssl req -x509 -nodes -days 365 -subj '/C=US/ST=Virgina/L=Fairfax/CN=www.affy.com' -newkey rsa:2048 -keyout sender.pem -out sender_cert.pem
+openssl rsa -in sender.pem -pubout > sender.pub
+
+openssl smime -sign -in my-message.txt -out signed-message -signer sender_cert.pem -inkey sender.pem -text
+openssl smime -encrypt -out encrypted-signed-message -in signed-message recipient_cert.pem
+openssl smime -encrypt -out encrypted-signed-message -in signed-message recipient.pub
+
+openssl smime -decrypt -out received-message -in encrypted-signed-message -inkey recipient.pem
+
+# signing certificate is used to verify
+openssl smime -verify -in received-message -text -CAfile sender_cert.pem
+openssl smime -pk7out -in received-message | openssl pkcs7 -print_certs -noout
+
+================================================================================
+================================================================================
+
+
+#encrypt and decrypt
+openssl rsautl -encrypt -pubin -inkey andy.pub < my-message.txt > my-encrypted-message.txt
+openssl rsautl -decrypt -inkey andy.pem < my-encrypted-message.txt
+
+# sign and verify
+openssl rsautl -sign -inkey david.pem < my-message.txt > signed.dat
+openssl rsautl -verify -inkey public-key.pem -pubin < signed.dat
+
+
+# generate self-signed certificate
+openssl req -x509 -nodes -days 365 -subj '/C=US/ST=Virgina/L=Fairfax/CN=www.affy.com' -newkey rsa:1024 -keyout andy.pem -out mycert.pem
+
+# david sending to andy.
+openssl smime -encrypt -in my-message.txt mycert.pem
+
+
+openssl smime -sign -in my-message.txt -out signed-message -signer mycert.pem -inkey  andy.pem -text
+
+openssl smime -encrypt -in my-message.txt -from you@youraddress.com -to her@heraddress.com -subject 'My encrypted reply' mycert.pem > mail.msg
+
+openssl smime -decrypt -in mail.msg mycert.pem
+
+
+cat "Hello, World" > message.txt
+# Create a cleartext signed message
+openssl smime -sign -in message.txt -text -out mail.msg -signer mycert.pem
+#Create an opaque signed message
+openssl smime -sign -in message.txt -text -out mail.msg -nodetach -signer mycert.pem
+
+
+Invoice
+-------
+$22 for Security on Rails Ebook
+
+
+Application Name: Secure Email
+
+When the application starts
+  if the network is available, download the directory and replace the db/directory.yml file
+  if the network is not available, load the exisitng db/directory.yml file.
+  if the yml file is not available, display error message.
+Open the main window
+  Three tabs: inbox, directory, outbox, display message
+  File > New Message
+  File > Save as Draft
+  File > Print
+  File > Close
+----
+  Tools > Download Private Key
+----
+  Tools > Download Full Directory
+  Tools > Sync Directory
+  Tools > Show Hidden Entries
+----
+  Tools > Configure Mail Settings
+  Tools > Configure Application Settings
+  Tools > Upgrade Settings
+----
+  Tools > Recieve Files
+
+Inbox
+  Each message shows Name/Organization/email_contact
+Outbox
+  Each message shows To/Date/MDN Recieved?/Filename?
+New Message Dialog
+  Send Button
+  To Button -> displays Directory Selector dialog
+  File Button -> displays File Open dialog
+  Text area
+Directory Selector Dialog
+  Name, Organization, Email Contact
+  Select Entry button
+  Cancol button
+
+Questions
+---------
+What is a hidden entry?
+What does it mean to update settings?
+What files are received?
+What values can third line of outbox be?
+What does tools>sync directory do?

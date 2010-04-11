@@ -1,0 +1,16 @@
+To: her@heraddress.com
+From: you@youraddress.com
+Subject: My encrypted reply
+MIME-Version: 1.0
+Content-Disposition: attachment; filename="smime.p7m"
+Content-Type: application/x-pkcs7-mime; smime-type=enveloped-data; name="smime.p7m"
+Content-Transfer-Encoding: base64
+
+MIIBQwYJKoZIhvcNAQcDoIIBNDCCATACAQAxge8wgewCAQAwVTBIMQswCQYDVQQG
+EwJVUzEQMA4GA1UECBMHVmlyZ2luYTEQMA4GA1UEBxMHRmFpcmZheDEVMBMGA1UE
+AxMMd3d3LmFmZnkuY29tAgkAooHfHhrMFlUwDQYJKoZIhvcNAQEBBQAEgYA6yCIc
+aqFiSuxpT3/ZC/HO5xJdOyv/6EQIT+byRvJlv8H46058Qqab8nFCQJrQJXpQY1v4
+L0mgJay+dWKbjSUPGEtreH9tuLlGgNZjfcrgpFvYyy1tE52Nh5E9K9U5VIiUCjcP
+wlChIYB6CPyVK2QO7edYrk6yfaXIe5tvFWDJ5DA5BgkqhkiG9w0BBwEwGgYIKoZI
+hvcNAwIwDgICAKAECBU/DebF5HYUgBD80NXeTV9GUuWNe/66j93u
+

@@ -1,0 +1,175 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (129.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (73.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateContacts (20100409005942)
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "remote_id" integer, "npi" varchar(255), "enckey" text, "signkey" text, "email_contact" varchar(255), "email_as1" varchar(255), "created_by" varchar(255), "mb_duns" varchar(255), "organization" varchar(255), "name" varchar(255), "date_created" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100409005942')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("contacts")[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-08 21:28:37) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-08 21:30:02) [GET]
+Rendering welcome/index
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-08 21:59:40) [GET]
+Rendering welcome/index
+
+ActionView::TemplateError (undefined local variable or method `download_full_directory_path' for #<ActionView::Base:0xb72391e8>) on line #3 of app/views/welcome/index.erb:
+1: Hello World.
+2: 
+3: Tools) <%= link_to "Download Full Directory", download_full_directory_path %>
+4: <br/>
+
+    app/views/welcome/index.erb:3
+
+Rendered rescues/_trace (54.9ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-08 22:00:21) [GET]
+Rendering welcome/index
+
+ActionView::TemplateError (undefined local variable or method `download_full_directory_url' for #<ActionView::Base:0xb5836520>) on line #3 of app/views/welcome/index.erb:
+1: Hello World.
+2: 
+3: Tools) <%= link_to "Download Full Directory", download_full_directory_url %>
+4: <br/>
+
+    app/views/welcome/index.erb:3
+
+Rendered rescues/_trace (30.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-08 22:03:25) [GET]
+Rendering welcome/index
+Completed in 79ms (View: 77, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-08 22:03:37) [GET]
+Rendering welcome/index
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:03:39) [GET]
+
+NameError (uninitialized constant WelcomeController::Savon):
+  app/controllers/welcome_controller.rb:7:in `download_full_directory'
+
+Rendered rescues/_trace (26.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:03:58) [GET]
+
+NameError (uninitialized constant WelcomeController::Savon):
+  app/controllers/welcome_controller.rb:7:in `download_full_directory'
+
+Rendered rescues/_trace (71.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:04:00) [GET]
+
+NameError (uninitialized constant WelcomeController::Savon):
+  app/controllers/welcome_controller.rb:7:in `download_full_directory'
+
+Rendered rescues/_trace (81.8ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:05:38) [GET]
+Rendering welcome/download_full_directory
+Completed in 1132ms (View: 4, DB: 0) | 200 OK [http://localhost/download_full_directory]
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:06:22) [GET]
+Rendering welcome/download_full_directory
+Completed in 739ms (View: 5, DB: 0) | 200 OK [http://localhost/download_full_directory]
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:06:40) [GET]
+Rendering welcome/download_full_directory
+Completed in 723ms (View: 5, DB: 0) | 200 OK [http://localhost/download_full_directory]
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:07:13) [GET]
+Rendering welcome/download_full_directory
+Completed in 689ms (View: 5, DB: 0) | 200 OK [http://localhost/download_full_directory]
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:09:31) [GET]
+
+NameError (uninitialized constant WelcomeController::DIRECTORY_YAML):
+  app/controllers/welcome_controller.rb:7:in `download_full_directory'
+
+Rendered rescues/_trace (90.0ms)
+Rendered rescues/_request_and_response (3.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:09:41) [GET]
+Rendering welcome/download_full_directory
+Completed in 705ms (View: 4, DB: 0) | 200 OK [http://localhost/download_full_directory]
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:10:02) [GET]
+Rendering welcome/download_full_directory
+Completed in 698ms (View: 5, DB: 0) | 200 OK [http://localhost/download_full_directory]
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 22:10:17) [GET]
+Rendering welcome/download_full_directory
+
+ActionView::TemplateError (undefined method `<=>' for #<Contact:0xb68e86d4>) on line #6 of app/views/welcome/download_full_directory.erb:
+3: 
+4: <div style="margin-bottom: 40px;">Directory saved to local file: <%= @directory_yaml %>.</div>
+5: 
+6: <%  @contacts.sort.each do |contact| -%>
+7:   <div style="margin-bottom: 20px;">
+8:     <div><%= contact.name %></div>
+9:     <div><%= contact.organization %></div>
+
+    app/views/welcome/download_full_directory.erb:6:in `sort'
+    app/views/welcome/download_full_directory.erb:6
+
+Rendered rescues/_trace (32.2ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 23:20:04) [GET]
+Rendering welcome/download_full_directory
+Completed in 872ms (View: 5, DB: 0) | 200 OK [http://localhost/download_full_directory]

@@ -1,0 +1,12 @@
+
+<h1>Email Directory</h1>
+
+<div style="margin-bottom: 40px;">Directory saved to local file: <%= @directory_yaml %>.</div>
+
+<%  @contacts.each do |contact| -%>
+  <div style="margin-bottom: 20px;">
+    <div><%= contact.name %></div>
+    <div><%= contact.organization %></div>
+    <div><%= contact.email_contact %></div>
+  </div>
+<% end  -%>
