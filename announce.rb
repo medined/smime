@@ -21,7 +21,7 @@ ActionMailer::Base.smtp_settings = {
   :port => 587,
   :authentication => :plain,
   :user_name => 'david.medinets@gmail.com',
-  :password => 'tpcjw6357'
+  :password => 'xxxxxxx'
 }
 
 AnnounceMailer.deliver_hack_night_message( 'ses.testaccount@yahoo.com, ses.testaccount2@yahoo.com, david.medinets@gmail.com, bjshur@yahoo.com, aheifetz@exaltllc.com' )
