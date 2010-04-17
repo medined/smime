@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.download_full_directory 'download_full_directory', :controller => 'welcome', :action => 'download_full_directory'
+  map.get_root_certificate    'get_root_certificate', :controller => 'welcome', :action => 'get_root_certificate'
   map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"

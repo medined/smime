@@ -173,3 +173,53 @@ Rendering rescues/layout (internal_server_error)
 Processing WelcomeController#download_full_directory (for 127.0.0.1 at 2010-04-08 23:20:04) [GET]
 Rendering welcome/download_full_directory
 Completed in 872ms (View: 5, DB: 0) | 200 OK [http://localhost/download_full_directory]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-16 01:14:00) [GET]
+Rendering welcome/index
+Completed in 22ms (View: 21, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-16 01:14:15) [GET]
+Rendering welcome/index
+Completed in 149ms (View: 134, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#get_root_certificate (for 127.0.0.1 at 2010-04-16 01:14:17) [GET]
+
+NoMethodError (undefined method `fputs' for #<WelcomeController:0xb69932c8>):
+  app/controllers/welcome_controller.rb:30:in `get_root_certificate'
+  app/controllers/welcome_controller.rb:29:in `open'
+  app/controllers/welcome_controller.rb:29:in `get_root_certificate'
+
+Rendered rescues/_trace (85.4ms)
+Rendered rescues/_request_and_response (3.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#get_root_certificate (for 127.0.0.1 at 2010-04-16 01:14:44) [GET]
+
+ActionView::MissingTemplate (Missing template welcome/get_root_certificate.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#get_root_certificate (for 127.0.0.1 at 2010-04-16 01:15:08) [GET]
+Rendering welcome/get_root_certificate
+Completed in 476ms (View: 11, DB: 0) | 200 OK [http://localhost/get_root_certificate]
+
+
+Processing WelcomeController#get_root_certificate (for 127.0.0.1 at 2010-04-16 01:15:26) [GET]
+Rendering welcome/get_root_certificate
+Completed in 579ms (View: 10, DB: 0) | 200 OK [http://localhost/get_root_certificate]
+
+
+Processing WelcomeController#get_root_certificate (for 127.0.0.1 at 2010-04-16 08:33:33) [GET]
+Rendering welcome/get_root_certificate
+Completed in 1552ms (View: 1, DB: 0) | 200 OK [http://localhost/get_root_certificate]
+
+
+Processing WelcomeController#get_root_certificate (for 127.0.0.1 at 2010-04-16 08:35:24) [GET]
+Rendering welcome/get_root_certificate
+Completed in 5474ms (View: 12, DB: 0) | 200 OK [http://localhost/get_root_certificate]
